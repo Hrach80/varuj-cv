@@ -413,6 +413,7 @@
     .profile-page .hero-section {
         flex-direction: column;
         text-align: center;
+    
     }
 
     .profile-page .bio-container {
@@ -436,6 +437,8 @@
 @media (max-width: 767px) {
     .profile-page {
         padding: 30px 0;
+        margin-top: 40px;
+    
     }
 
     .profile-page .main-content-grid {
