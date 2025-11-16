@@ -4,9 +4,8 @@ import { LanguageContext } from '../../context/LanguageContext';
 import './Portfolio.css';
 const profileData = {
     personal: {
-        photo: "../../../public/images/varujan_profile.png",
+        photo: "/images/varujan_profile.png",
         email: "vagharshakyanvarujan@gmail.com",
-    
     },
     education: [
         { id: 1, institution: 'edu_inst_ysmu', degree: 'edu_degree_md', years: "2019 - 2025" },

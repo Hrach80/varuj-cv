@@ -34,9 +34,10 @@ const About = () => {
         <div className="about-container">
             <header className="about-header">
                 <img
-                    src="../../../public/images/bhlogo.png"
+                    // Շտկված ճանապարհը
+                    src="/images/bhlogo.png"
                     alt="BH Logo"
-                    className="about-logo" 
+                    className="about-logo"
                 />
 
                 <h1 className="fade-in">{t('about_title')}</h1>
