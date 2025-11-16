@@ -1,0 +1,10 @@
+// supabase/functions/fetch_medical_news/deno.json
+{
+    "compilerOptions": {
+        "lib": [
+            "deno.ns",
+            "deno.window",
+            "esnext"
+        ]
+    }
+}

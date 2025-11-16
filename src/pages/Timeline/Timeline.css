@@ -1,0 +1,400 @@
+:root {
+
+    --primary-color: #4a68af;
+    --secondary-color: #025bc0;
+    --bg-light: #ffffff;
+    --card-bg: #f8f9fa;
+    --text-dark: #212529;
+    --text-muted: #6c757d;
+    --shadow-light: 0 4px 15px rgba(0, 0, 0, 0.1);
+    --border-radius: 12px;
+    --line-color: #dee2e6;
+    --transition-speed: 0.4s ease-out;
+}
+
+
+
+.timeline-wrapper {
+
+    background: linear-gradient(145deg, #e0f0ff 0%, #ffffff 100%);
+    color: var(--text-dark);
+    min-height: 100vh;
+}
+
+
+
+.timeline-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 60px 20px;
+}
+
+
+
+.timeline-header {
+
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+
+
+.time-icon {
+
+    width: 260px;
+    height: 150px;
+    animation: spin 6s infinite linear;
+    transform-style: preserve-3d;
+    -webkit-mask-image: radial-gradient(ellipse at center,
+            white 60%,
+            transparent 95%);
+    mask-image: radial-gradient(ellipse at center,
+            white 60%,
+            transparent 95%);
+
+}
+
+
+
+.timeline-header h1 {
+
+    font-size: 34px;
+    font-style: italic;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin: 0;
+    color: var(--primary-color);
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+
+
+.timeline-header p {
+    color: black;
+    margin: 0;
+    font-size: 0.95rem;
+    font-style: italic;
+    font-weight: bold;
+}
+
+
+.timeline {
+    position: relative;
+    padding: 20px 0;
+    z-index: 1;
+}
+
+
+.timeline::after {
+
+    content: '';
+    position: absolute;
+    width: 4px;
+    background-color: var(--line-color);
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -2px;
+    z-index: -1;
+}
+
+
+.timeline-item {
+
+    padding: 10px 40px;
+    position: relative;
+    width: 50%;
+    opacity: 0;
+}
+
+
+.timeline-item.left {
+
+    left: 0;
+    padding-right: 60px;
+    animation: slideInLeft var(--transition-speed) forwards var(--animation-delay, 0s);
+
+}
+
+
+.timeline-item.right {
+
+    left: 50%;
+    padding-left: 60px;
+    animation: slideInRight var(--transition-speed) forwards var(--animation-delay, 0s);
+}
+
+.timeline-pin {
+
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background-color: var(--bg-light);
+    border-radius: 50%;
+    border: 4px solid var(--line-color);
+    transition: all var(--transition-speed);
+}
+
+
+.timeline-item.left .timeline-pin {
+    right: -20px;
+}
+
+
+
+.timeline-item.right .timeline-pin {
+    left: -20px;
+}
+
+.timeline-content {
+    background-color: var(--card-bg);
+    padding: 20px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-light);
+    border-top: 5px solid var(--primary-color);
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+
+
+.timeline-content:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+
+
+.timeline-year {
+    color: var(--secondary-color);
+    font-weight: 700;
+    font-size: 1.1em;
+    display: block;
+    margin-bottom: 5px;
+}
+
+
+
+.timeline-content h3 {
+    color: var(--text-dark);
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+
+
+.timeline-content p {
+    color: var(--text-muted);
+}
+
+
+.timeline-icon {
+    font-size: 1.2rem;
+    color: var(--text-dark);
+}
+
+
+
+.timeline-item:hover .timeline-pin {
+    border-color: var(--secondary-color);
+    transform: translateY(-50%) scale(1.2);
+    box-shadow: 0 0 15px rgba(0, 188, 212, 0.5);
+}
+
+
+
+.timeline-item.left:hover .timeline-content {
+    border-top-color: var(--secondary-color);
+}
+
+
+
+.timeline-item.right:hover .timeline-content {
+    border-top-color: var(--primary-color);
+}
+
+
+.education-icon {
+    color: #f9d849;
+}
+
+
+
+.clinical-icon {
+    color: #e54d4d;
+}
+
+
+
+.professional-icon {
+    color: #4ecdc4;
+}
+
+
+
+.project-icon {
+    color: #ff6b6b;
+}
+
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+
+
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+}
+
+
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+
+
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+}
+
+.timeline-image-container {
+    margin: 0.5rem 0;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+
+
+.timeline-image {
+    width: 100%;
+    max-height: 250px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+
+
+.timeline-image:hover {
+    transform: scale(1.03);
+}
+
+.timeline-content h3 {
+    margin-bottom: 0.5rem;
+}
+
+
+
+
+
+.timeline-content p {
+    margin-top: 0.5rem;
+}
+
+
+
+@media screen and (max-width: 768px) {
+
+    .timeline::after {
+        left: 20px;
+        margin-left: -2px;
+    }
+
+
+    .timeline-item {
+        width: 100%;
+        padding-left: 60px;
+        padding-right: 10px;
+        animation: slideInMobile 0.5s forwards var(--animation-delay, 0s) !important;
+    }
+
+
+    .timeline-item.right,
+    .timeline-item.left {
+        left: 0;
+        transform: none;
+        padding-right: 10px;
+    }
+
+    .timeline-item.left .timeline-pin,
+    .timeline-item.right .timeline-pin {
+        left: 20px;
+        right: auto;
+
+    }
+
+    @keyframes slideInMobile {
+
+        from {
+            opacity: 0;
+            transform: translateX(-100%);
+        }
+
+
+
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+    }
+
+}
+
+
+@media screen and (max-width: 576px) {
+
+    .timeline-container {
+        padding: 30px 10px;
+    }
+
+    .timeline-header h1 {
+        font-size: 26px;
+    }
+
+    .timeline-header p {
+        font-size: 12px;
+    }
+
+    .timeline-item {
+        padding-left: 50px;
+    }
+
+    .time-icon {
+        margin-top: 40px;
+    }
+
+
+    .timeline-item.left .timeline-pin,
+    .timeline-item.right .timeline-pin {
+        left: 15px;
+    }
+
+
+
+    .timeline-content {
+        padding: 15px;
+    }
+
+}

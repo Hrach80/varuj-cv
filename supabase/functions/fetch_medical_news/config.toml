@@ -1,0 +1,2 @@
+name = "fetch_medical_news"
+main = "index.ts"

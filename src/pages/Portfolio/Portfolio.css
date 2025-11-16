@@ -1,0 +1,469 @@
+:root {
+    --primary-blue: #3956A6;
+    --dark-blue: #091752;
+    --medical-green: #1D9E74;
+    --light-bg: #f7f9fc;
+    --card-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+}
+
+.profile-page {
+    background-color: var(--light-bg);
+    padding: 60px 0;
+}
+
+.profile-page .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ----------------------------------- */
+/* I. ՆԵՐԱԾԱԿԱՆ ԲԱԺԻՆ (HERO) */
+/* ----------------------------------- */
+.profile-page .hero-section {
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: var(--card-shadow);
+    margin-bottom: 40px;
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    border-top: 5px solid var(--primary-blue);
+}
+
+.profile-page .photo-container {
+    flex-shrink: 0;
+}
+
+.profile-page .profile-photo {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: contain;
+    border: 5px solid var(--primary-blue);
+    box-shadow: 0 0 0 8px rgba(57, 86, 166, 0.2);
+}
+
+.profile-page .profile-name {
+    font-size: 36px;
+    font-weight: 800;
+    color: var(--dark-blue);
+    margin-bottom: 5px;
+}
+
+.profile-page .profile-specialty {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--medical-green);
+    margin-bottom: 20px;
+}
+
+.profile-page .profile-summary {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+.profile-page .contact-info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px 30px;
+}
+
+.profile-page .contact-item-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: var(--primary-blue);
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+.profile-page .contact-item-link:hover {
+    color: var(--dark-blue);
+}
+
+.profile-page .contact-item-link i {
+    font-size: 18px;
+    color: var(--medical-green);
+}
+
+/* ----------------------------------- */
+/* ԸՆԴՀԱՆՈՒՐ ԲԱԺԻՆՆԵՐԻ ԿԱՐԳԱՎՈՐՈՒՄ (ACCORDION) */
+/* ----------------------------------- */
+
+.profile-page .main-content-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+}
+
+.profile-page .profile-section {
+    background: white;
+    padding: 0;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    border: 1px solid #e0e0e0;
+}
+
+.profile-page .accordion-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 30px;
+    cursor: pointer;
+    background-color: #ffffff;
+    border-bottom: 1px solid transparent;
+    transition: background-color 0.3s ease, border-bottom-color 0.3s;
+}
+
+.profile-page .profile-section.open .accordion-header {
+    background-color: #fcfdff;
+    border-bottom-color: #f0f0f0;
+}
+
+.profile-page .accordion-header:hover {
+    background-color: #f5f8ff;
+}
+
+.profile-page .section-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--dark-blue);
+    margin: 0;
+}
+
+.profile-page .accordion-icon {
+    font-size: 20px;
+    color: var(--primary-blue);
+    transition: transform 0.3s ease;
+}
+.profile-page .profile-section.closed .accordion-icon {
+    transform: rotate(0deg);
+}
+
+.profile-page .profile-section.open .accordion-icon {
+    transform: rotate(180deg);
+    color: var(--medical-green);
+}
+
+.profile-page .accordion-content {
+    padding: 30px;
+    max-height: 2000px;
+    transition: max-height 0.4s ease-in-out, padding 0.4s ease-in-out;
+}
+
+.profile-page .profile-section.closed .accordion-content {
+    max-height: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    overflow: hidden;
+}
+
+
+.profile-page .academic-section .accordion-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+}
+
+.profile-page .list-group h3 {
+    font-size: 18px;
+    color: var(--medical-green);
+    border-bottom: 1px solid #eee;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+}
+
+.profile-page .list-item {
+    padding: 15px;
+    background-color: var(--light-bg);
+    border-radius: 8px;
+    margin-bottom: 15px;
+    border-left: 3px solid var(--primary-blue);
+}
+
+.profile-page .list-item h4 {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--dark-blue);
+    margin: 0;
+}
+
+.profile-page .list-item p {
+    font-size: 14px;
+    color: #777;
+    margin: 3px 0;
+}
+
+.profile-page .cert-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-left-color: var(--medical-green);
+}
+
+.profile-page .cert-item i {
+    color: var(--medical-green);
+    font-size: 18px;
+}
+
+.profile-page .awards-box {
+    padding: 15px;
+    background-color: #fff8e1;
+    border-radius: 8px;
+    border: 1px solid #ffe082;
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.profile-page .awards-box i {
+    color: #ffb300;
+    font-size: 20px;
+}
+
+
+.profile-page .clinical-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+}
+
+.profile-page .skills-stats {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    text-align: center;
+    margin-top: 20px;
+    padding: 10px;
+    background-color: var(--light-bg);
+    border-radius: 8px;
+}
+
+.profile-page .stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-grow: 1;
+}
+
+.profile-page .stat-item i {
+    font-size: 24px;
+    color: var(--primary-blue);
+    margin-bottom: 5px;
+}
+
+.profile-page .stat-number {
+    display: block;
+    font-size: 32px;
+    font-weight: 800;
+    color: var(--medical-green);
+    line-height: 1;
+}
+
+.profile-page .stat-label {
+    display: block;
+    font-size: 14px;
+    color: var(--dark-blue);
+    margin-top: 5px;
+}
+
+.profile-page .skills-summary {
+    font-style: italic;
+    font-size: 14px;
+    color: var(--primary-blue);
+    margin-top: 5px;
+}
+
+
+
+.profile-page .research-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    background-color: var(--light-bg);
+    border-radius: 8px;
+    margin-bottom: 15px;
+    border-left: 3px solid var(--medical-green);
+    transition: background-color 0.3s;
+    text-decoration: none;
+    color: inherit;
+}
+
+.profile-page .research-item:hover {
+    background-color: #e6f7f0;
+}
+
+.profile-page .research-item i {
+    color: var(--medical-green);
+    font-size: 20px;
+    flex-shrink: 0;
+}
+
+.profile-page .research-type {
+    font-size: 12px;
+    font-style: italic;
+    color: #999;
+}
+
+
+.profile-page .skills-group-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.profile-page .skill-group h3 {
+    font-size: 18px;
+    color: var(--primary-blue);
+    border-bottom: 1px solid #eee;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+}
+
+.profile-page .skill-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.profile-page .skill-list li {
+    font-size: 15px;
+    color: #555;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.profile-page .skill-list li i {
+    color: var(--medical-green);
+    font-size: 14px;
+}
+
+.profile-page .tech-list li i {
+    color: var(--primary-blue);
+}
+
+.profile-page .language-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.profile-page .language-list li {
+    background-color: #eef3fd;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-weight: 600;
+}
+
+.profile-page .language-list li i {
+    color: var(--primary-blue);
+}
+
+.profile-page .project-example {
+    font-size: 15px;
+    color: var(--dark-blue);
+    padding: 10px;
+    background-color: #f0f5ff;
+    border-radius: 5px;
+    border-left: 4px solid var(--primary-blue);
+}
+
+/* ----------------------------------- */
+/* ՌԵՍՊՈՆՍԻՎ ՈՃԵՐ */
+/* ----------------------------------- */
+
+@media (min-width: 768px) {
+    .profile-page .main-content-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    /* Կանոնավոր բաժանում 768px-ից բարձր */
+    .profile-page .academic-section {
+        grid-area: 1 / 1 / 2 / 2;
+    }
+
+    .profile-page .research-section {
+        grid-area: 1 / 2 / 2 / 3;
+    }
+
+    .profile-page .clinical-section {
+        grid-area: 2 / 1 / 3 / 3;
+    }
+
+    .profile-page .skills-section {
+        grid-column: 1 / -1;
+    }
+
+    .profile-page .academic-section .accordion-content {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 992px) {
+    .profile-page .hero-section {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .profile-page .bio-container {
+        padding-top: 20px;
+    }
+
+    .profile-page .profile-photo {
+        width: 150px;
+        height: 150px;
+    }
+
+    .profile-page .contact-info {
+        justify-content: center;
+    }
+
+    .profile-page .section-title {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 767px) {
+    .profile-page {
+        padding: 30px 0;
+    }
+
+    .profile-page .main-content-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .profile-page .skills-group-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .profile-page .skills-stats {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .profile-page .stat-item {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 5px 0;
+        border-bottom: 1px dashed #e0e0e0;
+    }
+
+    .profile-page .stat-item i {
+        display: none;
+    }
+
+    .profile-page .stat-number {
+        font-size: 24px;
+    }
+}

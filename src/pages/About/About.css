@@ -1,0 +1,276 @@
+:root {
+    --primary-color: #007bff;
+    --secondary-color: #f8f9fa;
+    --text-color: #333;
+    --light-gray: #e9ecef;
+    --border-radius: 12px;
+    --transition-speed: 0.4s;
+}
+
+.about-container {
+    transform: translateY(60px);
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    color: var(--text-color);
+    min-height: 80vh;
+}
+
+.about-header {
+    text-align: center;
+    padding: 5px 20px;
+    margin-bottom: 10px;
+    background: linear-gradient(145deg, #e0f0ff 0%, #ffffff 100%);
+    border-radius: var(--border-radius);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+
+}
+
+.about-header h1 {
+    font-size: 34px;
+    font-style: italic;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.about-subtitle {
+line-height: 1.7;
+    margin-bottom: 20px;
+    flex-grow: 1;
+    font-style: italic;
+    font-weight: bold;
+}
+
+.about-icon-globe {
+    font-size: clamp(1rem, 3vw, 5rem);
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    display: block;
+    margin: 0 auto 15px;
+}
+.about-content-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-bottom: 60px;
+}
+
+.about-section {
+    background-color: white;
+    padding: 30px;
+    border-radius: var(--border-radius);
+    border-top: 5px solid var(--primary-color);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.6s;
+}
+
+.about-section:hover {
+    transform: translateY(-8px);
+
+}
+
+.about-section h2 {
+    font-size: 1.2rem;
+    color: var(--primary-color);
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.about-section p {
+    line-height: 1.7;
+    margin-bottom: 20px;
+    flex-grow: 1;
+}
+
+.section-icon-wrapper {
+    margin-bottom: 20px;
+    color: var(--primary-color);
+}
+
+.section-icon {
+    font-size: 2rem;
+}
+
+.section-link {
+    display: inline-block;
+    margin-top: auto;
+    padding: 5px 20px;
+    background-color: var(--primary-color);
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    box-shadow:
+        0 0 8px #00BFFF,
+        0 0 1px #00BFFF,
+        0 0 5px #00BFFF,
+        0 0 10px #00BFFF50;
+    border: 2px solid #4a68af;
+    font-weight: bold;
+    transition: background-color var(--transition-speed);
+}
+
+.section-link:hover {
+    background-color: #2b447c;
+}
+
+.about-footer-cta {
+    text-align: center;
+    padding: 10px 20px;
+    background: linear-gradient(135deg, var(--primary-color), #4095ff);
+    color: white;
+    border-radius: var(--border-radius);
+    margin-top: 40px;
+    box-shadow:
+        0 0 8px #00BFFF,
+        0 0 1px #00BFFF,
+        0 0 5px #00BFFF,
+        0 0 10px #00BFFF50;
+    border: 2px solid #4a68af;
+}
+
+.cta-title {
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    margin-bottom: 15px;
+}
+
+.cta-text {
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    margin-bottom: 30px;
+}
+/* =========================================== */
+/* 1. KEYFRAMES: 3D ՊՏՏՈՒՄ (ՄԵՏԱՂԱԴՐԱՄԻ ՆՄԱՆ) */
+/* =========================================== */
+@keyframes spin {
+    0% {
+        transform: rotateY(0deg);
+    }
+
+    100% {
+        transform: rotateY(360deg);
+    }
+}
+
+/* =========================================== */
+/* 2. ABOUT LOGO-ի ՈՃԱՎՈՐՈՒՄԸ */
+/* =========================================== */
+.about-logo {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    animation: spin 5s infinite linear;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+    box-shadow:
+        0 4px 12px rgba(0, 0, 0, 0.4),
+        inset 0 0 10px rgba(255, 215, 0, 0.5);
+    object-fit: cover;
+}
+
+.cta-button {
+    padding: 5px 30px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    background-color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all var(--transition-speed) ease-in-out;
+    box-shadow:
+        0 0 8px #00BFFF,
+        0 0 1px #00BFFF,
+        0 0 5px #00BFFF,
+        0 0 10px #00BFFF50;
+    border: 2px solid #4a68af;
+}
+
+.cta-button:hover {
+    background-color: #e2e6ea;
+
+}
+
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    animation: fadeIn 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+    opacity: 0;
+}
+
+@keyframes bounceIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.8) translateY(20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+.bounce-in {
+    animation: bounceIn 0.8s ease-out forwards;
+    opacity: 0;
+}
+
+.delay-1 {
+    animation-delay: 0.2s;
+}
+
+.delay-2 {
+    animation-delay: 0.4s;
+}
+
+.delay-3 {
+    animation-delay: 0.6s;
+}
+
+.delay-4 {
+    animation-delay: 0.8s;
+}
+
+@media (max-width: 576px) {
+    .about-container {
+        padding: 10px;
+    }
+
+    .about-header {
+        padding: 30px 10px;
+        margin-bottom: 20px;
+    }
+
+    .about-section {
+        padding: 20px;
+    }
+                .about-header h1 {
+                    font-size: 16px;
+                }
+                                .about-subtitle{
+                    font-size: 12px;
+                                }
+}
+
+
+@media (min-width: 577px) and (max-width: 1024px) {
+
+    .about-content-grid {
+        gap: 25px;
+    }
+    
+}

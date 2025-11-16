@@ -1,0 +1,172 @@
+#medical-preloader {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+
+    /* Կիսաթափանցիկ հիմնական շերտ */
+    background: rgba(15, 25, 35, 0.55);
+
+    /* Գեղեցիկ Գլաս (Glass) Blur effect */
+    backdrop-filter: blur(10px) saturate(140%);
+    -webkit-backdrop-filter: blur(10px) saturate(140%);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    z-index: 10000;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transition: opacity 600ms ease, visibility 0s 600ms;
+}
+
+/* Fade-out */
+#medical-preloader.fade-out {
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+}
+/* ---------------------------------------------------- */
+/* 🔵 EKG CONTAINER */
+/* ---------------------------------------------------- */
+
+.ekg-line-container {
+    width: 420px;
+    height: 100px;
+    border-radius: 18px;
+    background-color: #0d2822;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    --neon-blue: #12e7f6;
+    box-shadow:
+        0 0 10px rgba(18, 231, 246, 0.5),
+        inset 0 0 5px rgba(255, 255, 255, 0.1),
+        inset 0 0 15px var(--neon-blue);
+    border: 1px solid rgba(18, 231, 246, 0.3);
+    padding: 20px;
+    position: relative;
+    overflow: hidden;
+    perspective: 1000px;
+    backdrop-filter: blur(5px);
+}
+.ekg-line-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    background-size: 20px 20px;
+    opacity: 0.5;
+    z-index: 1;
+}
+
+@keyframes soft-glow {
+    from {
+        opacity: 0.4;
+    }
+
+    to {
+        opacity: 0.9;
+    }
+}
+
+/* ---------------------------------------------------- */
+/* 🔵 SVG LINE */
+/* ---------------------------------------------------- */
+
+.ekg-svg {
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+    filter: drop-shadow(0 0 12px rgba(253, 255, 255, 0.8));
+}
+
+.ekg-path {
+    stroke-dasharray: 600;
+    stroke-dashoffset: 600;
+    animation: ekg-draw 1.6s cubic-bezier(0.4, 0.0, 0.2, 1) infinite;
+}
+@keyframes ekg-draw {
+    0% {
+        stroke-dashoffset: var(--dash, 600);
+        opacity: 0.4;
+    }
+
+    50% {
+        stroke-dashoffset: 0;
+        opacity: 1;
+    }
+
+    100% {
+        stroke-dashoffset: calc(var(--dash, 600) * -1);
+        opacity: 0.4;
+    }
+}
+
+/* ---------------------------------------------------- */
+/* 🔵 LOADING TEXT */
+/* ---------------------------------------------------- */
+
+.loading-text {
+    margin-top: 18px;
+    font-size: 1.15rem;
+    font-weight: 500;
+    color: #e7f3ff;
+    letter-spacing: 1px;
+
+    animation: pulse 1.6s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0% {
+        opacity: .5;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: .5;
+    }
+}
+
+/* ---------------------------------------------------- */
+/* 🔵 RESPONSIVE */
+/* ---------------------------------------------------- */
+
+@media (max-width: 768px) {
+    .ekg-line-container {
+        width: 300px;
+        height: 130px;
+        border-radius: 18px;
+    }
+
+    .loading-text {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .ekg-line-container {
+        width: 250px;
+        height: 110px;
+        border-radius: 16px;
+    }
+
+    /* adjust EKG dash length using CSS variable */
+    .ekg-path {
+        --dash: 480;
+    }
+
+    .loading-text {
+        font-size: 0.9rem;
+    }
+}

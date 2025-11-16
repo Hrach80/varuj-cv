@@ -1,0 +1,469 @@
+/* ====================================================================
+   ՀԻՄՆԱԿԱՆ ԿԱՌՈՒՑՎԱԾՔԸ
+   ==================================================================== */
+.blog-container {
+    padding: 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+    font-family: Arial, sans-serif;
+}
+
+.events-header {
+    text-align: center;
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #eee;
+}
+
+.test-icon {
+    width: 180px;
+    height: 110px;
+    margin-top: 30px;
+
+    animation: spin 6s infinite linear;
+    transform-style: preserve-3d;
+    -webkit-mask-image: radial-gradient(ellipse at center,
+            white 60%,
+            transparent 95%);
+    mask-image: radial-gradient(ellipse at center,
+            white 60%,
+            transparent 95%);
+}
+
+.events-header h1 {
+    font-size: 34px;
+    font-style: italic;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin: 0;
+    /* Խորը կանաչ */
+}
+
+.events-header p {
+    color: black;
+    margin: 0;
+    font-size: 0.95rem;
+    font-style: italic;
+    font-weight: bold;
+}
+
+/* ====================================================================
+   EVENTS GRID (ՔԱՐՏԵՐԻ ՑԱՆՑ)
+   ==================================================================== */
+.events-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+}
+
+/* ====================================================================
+   EVENT CARD (ՄԻՋՈՑԱՌՄԱՆ ՔԱՐՏ)
+   ==================================================================== */
+.event-card-wrapper {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInSlideUp 0.6s forwards ease-out;
+}
+
+@keyframes fadeInSlideUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.event-card {
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.event-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.event-card-media {
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+    position: relative;
+}
+
+.event-card-content {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.event-title {
+    font-size: 1.6em;
+    color: #004d40;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.event-description {
+    color: #555;
+    font-size: 0.95em;
+    line-height: 1.4;
+    flex-grow: 1;
+    margin-bottom: 15px;
+}
+
+.event-participants h4 {
+    font-size: 0.9em;
+    color: #26a69a;
+    margin-bottom: 5px;
+}
+
+/* ====================================================================
+   SLIDER (ՍԼԱՅԴԵՐ)
+   ==================================================================== */
+.slider-container {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.image-wrapper {
+    display: flex;
+    height: 100%;
+    transition: transform 0.5s ease-in-out;
+}
+
+.slide-image {
+    min-width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+}
+
+.slider-dots {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    background-color: rgba(255, 255, 255, 0.6);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.dot.active {
+    background-color: #26a69a;
+}
+
+/* ====================================================================
+   CARD ACTIONS (ԿՈՃԱԿՆԵՐ)
+   ==================================================================== */
+.card-action {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 15px;
+    border-top: 1px solid #eee;
+}
+
+.view-details-button,
+.delete-button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.1s;
+    text-decoration: none;
+    text-align: center;
+}
+
+.view-details-button {
+    background-color: #26a69a;
+    color: #fff;
+}
+
+.view-details-button:hover {
+    background-color: #00897b;
+}
+
+.delete-button {
+    background-color: #e57373;
+    color: #fff;
+}
+
+.delete-button:hover {
+    background-color: #d32f2f;
+}
+
+/* ====================================================================
+   ADD EVENT FORM (ՖՈՐՄԱ)
+   ==================================================================== */
+.admin-section {
+    margin-bottom: 40px;
+    border-bottom: 2px dashed #ccc;
+    padding-bottom: 30px;
+}
+
+.add-event-form {
+    background: #f4f4f4;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    display: grid;
+    gap: 15px;
+}
+
+.add-event-form h2 {
+    color: #004d40;
+    margin-top: 0;
+    grid-column: 1 / -1;
+    text-align: center;
+}
+
+.add-event-form input[type="text"],
+.add-event-form textarea {
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 1em;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.add-event-form textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.file-input-group {
+    padding: 10px 0;
+    border: 1px dashed #aaa;
+    border-radius: 6px;
+    padding: 15px;
+    grid-column: 1 / -1;
+}
+
+.file-input-group label {
+    display: block;
+    font-weight: bold;
+    color: #004d40;
+    margin-bottom: 10px;
+}
+
+.file-count {
+    font-size: 0.9em;
+    color: #26a69a;
+    margin-top: 5px;
+}
+
+.add-event-form button[type="submit"] {
+    grid-column: 1 / -1;
+    background-color: #004d40;
+    color: white;
+    padding: 15px;
+    font-size: 1.1em;
+}
+
+.add-event-form button[type="submit"]:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+/* ====================================================================
+   MODAL (ՄՈԴԱԼ ՊԱՏՈՒՀԱՆ)
+   ==================================================================== */
+.modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    animation: fadeIn 0.3s forwards;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+.modal-content {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    max-width: 90%;
+    max-height: 90%;
+    overflow-y: auto;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    padding: 30px;
+    transform: scale(0.95);
+    animation: scaleIn 0.3s forwards;
+}
+
+@keyframes scaleIn {
+    to {
+        transform: scale(1);
+    }
+}
+
+.close-modal-button {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 2em;
+    color: #333;
+    cursor: pointer;
+    transition: color 0.3s;
+    z-index: 1010;
+}
+
+.close-modal-button:hover {
+    color: #d32f2f;
+}
+
+.modal-media {
+    flex: 1;
+    min-width: 400px;
+    max-width: 50%;
+    height: 400px;
+    margin-right: 30px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.modal-details {
+    flex: 1;
+    padding: 10px;
+}
+
+.modal-title {
+    font-size: 2.5em;
+    color: #004d40;
+    margin-top: 0;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.modal-description {
+    font-size: 1.1em;
+    line-height: 1.6;
+    color: #444;
+    margin-bottom: 25px;
+}
+
+.modal-participants,
+.modal-date {
+    margin-bottom: 15px;
+}
+
+.modal-participants h4,
+.modal-date h4 {
+    font-size: 1em;
+    color: #26a69a;
+    margin: 0 0 5px 0;
+}
+
+.modal-participants p,
+.modal-date p {
+    font-size: 1em;
+    color: #666;
+    font-weight: bold;
+}
+
+/* ====================================================================
+   MEDIA QUERIES (ԱՐՁԱԳԱՆՔՈՂ ԴԻԶԱՅՆ)
+   ==================================================================== */
+
+@media (max-width: 950px) {
+    .events-grid {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+
+    .modal-content {
+        flex-direction: column;
+        max-width: 95%;
+        padding: 20px;
+    }
+
+    .modal-media {
+        min-width: 100%;
+        max-width: 100%;
+        height: 300px;
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+
+    .modal-title {
+        font-size: 2em;
+    }
+}
+
+@media (max-width: 600px) {
+    .blog-container {
+        max-width: 100%;
+        padding: 0px;
+    }
+
+    .events-grid {
+        grid-template-columns: 1fr;
+    }
+        .test-icon{
+            margin-top: 80px;
+        }
+
+    .events-header h1 {
+        font-size: 1.3em;
+    }
+        .events-header p{
+            font-size: 12px;
+        }
+
+    .card-action {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .view-details-button,
+    .delete-button {
+        width: 100%;
+    }
+
+    .add-event-form {
+        gap: 10px;
+    }
+}
+
+@media (max-width: 380px) {
+    body {
+        display: flex;
+        justify-content: center;
+    }
+
+
+
+}
