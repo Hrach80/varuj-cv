@@ -231,6 +231,7 @@ export const translations = {
         login_success: "You have successfully logged in.",
         form_email: "Please enter an email address.",
         form_password: "Please enter a password.",
+        upload_success: "Images uploaded successfully.",
 
         //Բլոգ
         events_page_title: "Medical Events",
@@ -493,6 +494,7 @@ export const translations = {
         login_success: "Դուք հաջողությամբ մուտք գործեցիք։",
         form_email: "Խնդրում ենք մուտքագրել էլ․հասցե։",
         form_password: "Խնդրում ենք մուտքագրել գաղտնաբառ։",
+        upload_success: "Պատկերները հաջողությամբ բեռնվեցին։",
         
         //Բլոգ
         events_page_title: "Բժշկական Միջոցառումներ",
@@ -757,6 +759,7 @@ export const translations = {
         login_success: "Вы успешно вошли в систему.",
         form_email: "Пожалуйста, введите адрес электронной почты.",
         form_password: "Пожалуйста, введите пароль.",
+        upload_success: "Изображения успешно загружены.",
 
         //Բլոգ
         events_page_title: "Медицинские Мероприятия",
