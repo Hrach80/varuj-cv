@@ -60,6 +60,7 @@
    EVENT CARD (ՄԻՋՈՑԱՌՄԱՆ ՔԱՐՏ)
    ==================================================================== */
 .event-card-wrapper {
+    /* Ներածական անիմացիա */
     opacity: 0;
     transform: translateY(20px);
     animation: fadeInSlideUp 0.6s forwards ease-out;
@@ -391,7 +392,7 @@
 .modal-participants p,
 .modal-date p {
     font-size: 1em;
-    color: #666;
+    color: #f11b1b;
     font-weight: bold;
 }
 
@@ -463,6 +464,9 @@
         display: flex;
         justify-content: center;
     }
+        .modal-description{
+            font-size: 12px;
+        }
 
 
 
