@@ -263,7 +263,7 @@
 /* ԼՐԱՑՈՒՑԻՉ ՌԵՍՊՈՆՍԻՎ ՃՇԳՐՏՈՒՄՆԵՐ */
 /* ----------------------------------- */
 
-@media (min-width: 769px) and (max-width: 1024px) {
+@media (min-width: 769px)  {
     .nav-bar {
         padding: 12px 3%;
         width: 97%;

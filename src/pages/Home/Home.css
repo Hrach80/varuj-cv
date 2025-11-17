@@ -252,87 +252,49 @@ body{
 /* ----------------------------------- */
 /* ՃՇԳՐՏՎԱԾ ՌԵՍՊՈՆՍԻՎ ԴԱՍԱՎՈՐՈՒԹՅՈՒՆ */
 /* ----------------------------------- */
-@media (max-width: 991px) {
-    .hero-section .container {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        padding: 0 20px;
-    }
 
-    .hero-section .hero-image-container {
-        order: 1;
-        margin-top: 20px;
-        flex-basis: 100%;
-        max-width: 450px;
-        width: 100%;
-    }
 
-    .results-section {
-        order: 2;
-        padding-top: 30px;
-    }
 
-    .hero-section .hero-content {
-        order: 3;
-        flex-basis: 100%;
-        margin-top: 20px;
-    }
-
-    .hero-section .action-buttons-container {
-        order: 4;
-        width: 100%;
-        justify-content: center;
-        margin-top: 30px;
-        margin-bottom: 0;
-    }
-
-    .hero-section .doctor-placeholder {
-        height: 400px;
-        max-width: 100%;
-        margin: 0 auto;
-    }
-
-    .results-section .countdown-number {
-        font-size: 38px;
-    }
-
-    .hero-section .main-title {
-        font-size: 32px;
-    }
-
-    .hero-section .description {
-        font-size: 16px;
-    }
-}
-
-@media (max-width: 768px) {
-
-}
 
 @media (max-width: 992px) {
 
-    .hero-section .hero-image-container {
-        max-width: 450px;
-        margin: 0 auto;
-        order: 1;
-    }
-
-    .hero-section .doctor-placeholder {
-        height: 400px;
-    }
-
-    .results-section {
-        order: 2;
-    }
-
-    .hero-section .hero-content {
-        order: 3;
-    }
-
-    .hero-section .action-buttons-container {
-        order: 4;
-    }
+    .hero-section .container {
+            padding: 0 15px;
+        }
+    
+        .hero-section .main-title {
+            font-size: 28px;
+            line-height: 1.3;
+            margin-bottom: 15px;
+        }
+    
+        .hero-section .highlight {
+            font-size: 28px;
+        }
+    
+        .hero-section .description {
+            font-size: 14px;
+            line-height: 1.5;
+            margin-bottom: 15px;
+        }
+    
+        .hero-section .doctor-placeholder {
+            height: 350px;
+        }
+    
+        .results-section .countdown-container {
+            justify-content: space-evenly;
+            gap: 15px;
+            padding: 15px 0;
+        }
+    
+        .results-section .countdown-number {
+            font-size: 32px;
+        }
+    
+        .results-section .countdown-label {
+            font-size: 12px;
+        }
 }
 
 @media (max-width: 768px) {
