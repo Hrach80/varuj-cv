@@ -63,7 +63,7 @@ body {
 .hero-section .doctor-placeholder {
     width: 100%;
     max-width: 400px;
-    height: 500px;
+    height: 400px;
     background:
         linear-gradient(to top,
             rgb(243, 247, 255, 1) 0%,
