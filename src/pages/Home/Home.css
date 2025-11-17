@@ -235,7 +235,7 @@ body{
     }
 
     .hero-section .doctor-placeholder {
-        height: 400px;
+        height: 300px;
     }
 
     .results-section .countdown-container {
@@ -261,7 +261,7 @@ body{
 /* Այս կետից ԲՈԼՈՐԸ դառնում է սյունակաձև և կենտրոնացված */
 @media (max-width: 991px) {
     .hero-section .container {
-        /* Սյունակաձև դասավորություն */
+        
         flex-direction: column;
         align-items: center;
         text-align: center;
@@ -326,47 +326,7 @@ body{
 }
 
 
-/* 3. Միջին Բջջային (max-width: 768px) */
-/* Կարգավորումներ, որոնք ավելի են փոքրացնում տարրերը */
-@media (max-width: 868px) {
-    .hero-section .container {
-        padding: 0 15px;
-    }
 
-    .hero-section .main-title {
-        font-size: 28px;
-        line-height: 1.3;
-        margin-bottom: 15px;
-    }
-
-    .hero-section .highlight {
-        font-size: 28px;
-    }
-
-    .hero-section .description {
-        font-size: 14px;
-        line-height: 1.5;
-        margin-bottom: 15px;
-    }
-
-    .hero-section .doctor-placeholder {
-        height: 650px;
-    }
-
-    .results-section .countdown-container {
-        justify-content: space-evenly;
-        gap: 15px;
-        padding: 15px 0;
-    }
-
-    .results-section .countdown-number {
-        font-size: 32px;
-    }
-
-    .results-section .countdown-label {
-        font-size: 12px;
-    }
-}
 
 
 /* 4. Փոքր Բջջային (max-width: 576px) */
