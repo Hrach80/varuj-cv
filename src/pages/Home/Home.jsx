@@ -126,17 +126,20 @@ const Home = () => {
         <div className="home-box">
             <section className="hero-section">
                 <div className="container">
+
+                    {/* 1. Նկարի Բաժին (order: 2 - Desktop | order: 1 - Mobile) */}
                     <div className="hero-image-container">
                         <div
                             className="doctor-placeholder"
                             style={{
-                                backgroundImage: `url(${HERO_IMAGE_BASE_URL}?t=${imageTimestamp})`, 
+                                backgroundImage: `url(${HERO_IMAGE_BASE_URL}?t=${imageTimestamp})`,
                             }}
                         >
                             {(!loading && isAdmin) && <ImageUploadButton t={t} onUploadSuccess={handleImageUpdate} />}
                         </div>
                     </div>
 
+                    {/* 2. Հիմնական Բովանդակություն (order: 1 - Desktop | order: 3 - Mobile) */}
                     <div className="hero-content">
                         <h1 className="main-title">
                             {t('main_title_part1')} <span className="highlight">{t('main_title_highlight')}</span>
@@ -146,6 +149,16 @@ const Home = () => {
                         </p>
                     </div>
 
+                    {/* 3. Հետհաշվարկ (order: 3 - Desktop | order: 2 - Mobile) */}
+                    {/* Դեսքթոփի վրա այն կտեղադրվի աջից՝ hero-image-container-ի ներքևում,
+                       քանի որ բոլորը flex-wrap: wrap-ի մեջ են։ 
+                       Փոփոխություն՝ order: 3-ի փոխարեն դարձնել ավելի բարձր desktop-ի համար
+                       կամ պարզապես թողնել ավելի ուշ։ Ավելի լավ է այն տեղադրել ԲՈՎԱՆԴԱԿՈՒԹՅԱՆՑ հետո, 
+                       որպեսզի կարողանանք կառավարել order-ը։
+                       
+                       Քանի որ դուք նախկինում տվել էիք order: 3 results-section-ին,
+                       Մենք կպահպանենք տեղադրումը:
+                    */}
                     <section className="results-section top-countdown">
                         <div className="results-container">
                             <div className="countdown-container">
@@ -160,6 +173,7 @@ const Home = () => {
                         </div>
                     </section>
 
+                    {/* 4. Կոճակներ (order: 4 - Desktop/Mobile) */}
                     <div className="action-buttons action-buttons-container">
                         <Link to="/portfolio" className="btn btn-primar">
                             {t('btn_portfolio')}

@@ -1,7 +1,7 @@
-
-body{
-        background: linear-gradient(145deg, #e0f0ff 0%, #ffffff 100%);
+body {
+    background: linear-gradient(145deg, #e0f0ff 0%, #ffffff 100%);
 }
+
 .home-box {
     width: 100%;
     padding-bottom: 50px;
@@ -26,19 +26,39 @@ body{
     padding: 0 40px;
 }
 
+/* Բազային (Desktop) Order-ներ */
 .hero-section .hero-content {
     flex-basis: 50%;
     order: 1;
+    /* Բովանդակություն ձախից */
 }
 
 .hero-section .hero-image-container {
     flex-basis: 45%;
-    order: 2; 
+    order: 2;
+    /* Նկար աջից */
     display: flex;
     justify-content: center;
     position: relative;
     z-index: 2;
 }
+
+.results-section {
+    width: 100%;
+    order: 3;
+    /* Հետհաշվարկ ներքևից */
+    padding-top: 50px;
+    text-align: center;
+}
+
+.hero-section .action-buttons-container {
+    width: 50%;
+    display: flex;
+    gap: 15px;
+    order: 4;
+    /* Կոճակները ամենաներքևից */
+}
+
 
 .hero-section .doctor-placeholder {
     width: 100%;
@@ -76,13 +96,6 @@ body{
     margin-bottom: 20px;
 }
 
-.hero-section .action-buttons-container {
-    width: 50%;
-    display: flex;
-    gap: 15px;
-    order: 4;
-}
-
 .hero-section .btn {
     padding: 5px 25px;
     border-radius: 5px;
@@ -90,7 +103,7 @@ body{
     font-weight: 600;
     font-size: 15px;
     transition: all 0.3s;
-    margin-bottom: 200px; 
+    margin-bottom: 200px;
 }
 
 .hero-section .btn-primar {
@@ -106,6 +119,7 @@ body{
         0 0 10px #00BFFF50;
     border: 2px solid #4a68af;
 }
+
 .hero-section .btn-primar:hover {
     background-color: #4a68af;
 }
@@ -126,13 +140,6 @@ body{
     color: white;
 }
 
-
-.results-section {
-    width: 100%;
-    order: 3; 
-    padding-top: 50px;
-    text-align: center;
-}
 
 .results-section .results-container {
     max-width: 1000px;
@@ -171,14 +178,6 @@ body{
     margin-top: 5px;
 }
 
-.doctor-placeholder {
-    position: relative;
-    width: 100%;
-    /* Օրինակ */
-    height: 400px;
-    background-color: #e9e9e9;
-}
-
 .btn-image-upload {
     position: absolute;
     top: 15px;
@@ -205,6 +204,7 @@ body{
     transform: scale(0.98);
 }
 
+
 /* ----------------------------------- */
 /* ՌԵՍՊՈՆՍԻՎ (Media Queries) */
 /* ----------------------------------- */
@@ -217,13 +217,11 @@ body{
     }
 
     .hero-section .hero-content {
-        /* Բովանդակության լայնությունը մի փոքր մեծացնել */
-        flex-basis: 55%;
+        flex-basis: 50%;
     }
 
     .hero-section .hero-image-container {
-        /* Նկարի բաժնի լայնությունը կրճատել */
-        flex-basis: 40%;
+        flex-basis: 45%;
     }
 
     .hero-section .main-title {
@@ -235,11 +233,13 @@ body{
     }
 
     .hero-section .doctor-placeholder {
-        height: 300px;
+        height: 350px;
     }
 
     .results-section .countdown-container {
         gap: 15px;
+        justify-content: flex-start;
+        /* Տեղափոխել ձախ, քանի որ կոնտեյներները փոքր են */
     }
 
     .results-section .countdown-number {
@@ -257,80 +257,97 @@ body{
 }
 
 
-/* 2. Պլանշետային Անցում (max-width: 991px) */
-/* Այս կետից ԲՈԼՈՐԸ դառնում է սյունակաձև և կենտրոնացված */
+/* 2. Պլանշետային Անցում (max-width: 991px) - ԱՆՑՈՒՄ ՍՅՈՒՆԱԿԱՁԵՎԻ (Mobile View) */
 @media (max-width: 991px) {
     .hero-section .container {
-        
         flex-direction: column;
         align-items: center;
         text-align: center;
         padding: 0 20px;
     }
 
-    /* Տարրերի հերթականությունը բջջայինի համար */
+    /* ԲՋՋԱՅԻՆ ORDER: Նկար (1), Հետհաշվարկ (2), Բովանդակություն (3), Կոճակներ (4) */
     .hero-section .hero-image-container {
         order: 1;
-        /* 1. Նկարը վերևում */
-        margin-top: 20px;
         flex-basis: 100%;
+        /* Ամբողջ լայնությունը */
         max-width: 450px;
-        width: 100%;
-        /* ՋՆՋԵԼ՝ height: 200px; -ը հակասություն էր առաջացնում */
-        /* Ավելացնել margin-bottom, որպեսզի անջատենք հաջորդ բաժնից */
+        margin-top: 20px;
         margin-bottom: 30px;
+        width: 100%;
     }
 
     .results-section {
         order: 2;
-        /* 2. Հետհաշվարկը */
         padding-top: 0;
-        /* Քանի որ նկարի մոտ արդեն կա margin-bottom */
+        width: 100%;
+        max-width: 450px;
+        /* Սահմանափակել հետհաշվարկի լայնությունը */
+    }
+
+    .results-section .countdown-container {
+        justify-content: center;
+        /* Կենտրոնացնել բջջայինի վրա */
     }
 
     .hero-section .hero-content {
         order: 3;
-        /* 3. Բովանդակությունը */
         flex-basis: 100%;
         margin-top: 20px;
     }
 
     .hero-section .action-buttons-container {
         order: 4;
-        /* 4. Կոճակները */
         width: 100%;
         justify-content: center;
-        margin-top: 30px;
         margin-bottom: 0;
+        max-width: 450px;
     }
 
     .hero-section .doctor-placeholder {
-        /* Այս բարձրությունը (400px) այժմ ճիշտ է աշխատում */
         height: 400px;
-        max-width: 100%;
-        margin: 0 auto;
-    }
-
-    /* Տառաչափերի ճշգրտում 991px-ի տակ */
-    .results-section .countdown-number {
-        font-size: 38px;
     }
 
     .hero-section .main-title {
         font-size: 32px;
     }
 
-    .hero-section .description {
-        font-size: 16px;
+    .results-section .countdown-number {
+        font-size: 38px;
     }
 }
 
 
+/* 3. Միջին Բջջային (max-width: 768px) */
+/* Սա կկիրառվի 991px-ի ոճերի վրայից՝ ավելի փոքր էկրանների համար */
+@media (max-width: 768px) {
+    .hero-section .container {
+        padding: 0 15px;
+    }
 
+    .hero-section .doctor-placeholder {
+        height: 320px;
+    }
+
+    .hero-section .main-title {
+        font-size: 26px;
+    }
+
+    .hero-section .description {
+        font-size: 14px;
+    }
+
+    .results-section .countdown-number {
+        font-size: 32px;
+    }
+
+    .results-section .countdown-label {
+        font-size: 11px;
+    }
+}
 
 
 /* 4. Փոքր Բջջային (max-width: 576px) */
-/* Առավելագույն կոմպակտություն */
 @media (max-width: 576px) {
     .hero-section {
         padding-top: 20px;
@@ -349,10 +366,6 @@ body{
         font-size: 28px;
     }
 
-    .results-section .countdown-label {
-        font-size: 11px;
-    }
-
     .hero-section .action-buttons-container {
         flex-direction: column;
         gap: 10px;
@@ -369,9 +382,5 @@ body{
     .hero-section .btn-primar,
     .hero-section .btn-secondary {
         display: block;
-    }
-
-    .hero-section .btn-primar i {
-        margin-right: 5px;
     }
 }
