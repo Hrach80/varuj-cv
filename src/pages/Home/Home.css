@@ -205,72 +205,27 @@ body {
 }
 
 
+/* ... Բազային (Desktop) ոճերը մնում են անփոփոխ ... */
+
 /* ----------------------------------- */
 /* ՌԵՍՊՈՆՍԻՎ (Media Queries) */
 /* ----------------------------------- */
 
-/* 1. Մեծ Պլանշետ/Փոքր Դեսքթոփ (max-width: 1024px) */
-/* Կողք-կողքի դասավորություն, բայց կոմպակտ */
+/* 1. Մեծ Պլանշետ/ԱՆՑՈՒՄ ՍՅՈՒՆԱԿԱՁԵՎԻ (max-width: 1024px) */
+/* Այս կետից ցածր ամեն ինչ դառնում է սյունակաձև, որպեսզի ապահովվի iPad-ի ռեսպոնսիվությունը: */
 @media (max-width: 1024px) {
     .hero-section .container {
-        padding: 0 30px;
-    }
-
-    .hero-section .hero-content {
-        flex-basis: 50%;
-    }
-
-    .hero-section .hero-image-container {
-        flex-basis: 45%;
-    }
-
-    .hero-section .main-title {
-        font-size: 38px;
-    }
-
-    .hero-section .description {
-        font-size: 17px;
-    }
-
-    .hero-section .doctor-placeholder {
-        height: 350px;
-    }
-
-    .results-section .countdown-container {
-        gap: 15px;
-        justify-content: flex-start;
-        /* Տեղափոխել ձախ, քանի որ կոնտեյներները փոքր են */
-    }
-
-    .results-section .countdown-number {
-        font-size: 42px;
-    }
-
-    .hero-section .btn {
-        padding: 4px 20px;
-        font-size: 14px;
-    }
-
-    .hero-section .action-buttons-container {
-        gap: 10px;
-    }
-}
-
-
-/* 2. Պլանշետային Անցում (max-width: 991px) - ԱՆՑՈՒՄ ՍՅՈՒՆԱԿԱՁԵՎԻ (Mobile View) */
-@media (max-width: 991px) {
-    .hero-section .container {
         flex-direction: column;
+        /* Այսուհետ սյունակաձև */
         align-items: center;
         text-align: center;
-        padding: 0 20px;
+        padding: 0 30px;
     }
 
     /* ԲՋՋԱՅԻՆ ORDER: Նկար (1), Հետհաշվարկ (2), Բովանդակություն (3), Կոճակներ (4) */
     .hero-section .hero-image-container {
         order: 1;
         flex-basis: 100%;
-        /* Ամբողջ լայնությունը */
         max-width: 450px;
         margin-top: 20px;
         margin-bottom: 30px;
@@ -282,7 +237,6 @@ body {
         padding-top: 0;
         width: 100%;
         max-width: 450px;
-        /* Սահմանափակել հետհաշվարկի լայնությունը */
     }
 
     .results-section .countdown-container {
@@ -304,22 +258,24 @@ body {
         max-width: 450px;
     }
 
+    /* Չափսերի ճշգրտում */
     .hero-section .doctor-placeholder {
         height: 400px;
     }
 
     .hero-section .main-title {
-        font-size: 32px;
+        font-size: 38px;
+        /* Պահպանել նախկին 1024px-ի չափը */
     }
 
     .results-section .countdown-number {
-        font-size: 38px;
+        font-size: 42px;
     }
 }
 
 
-/* 3. Միջին Բջջային (max-width: 768px) */
-/* Սա կկիրառվի 991px-ի ոճերի վրայից՝ ավելի փոքր էկրանների համար */
+/* 2. Միջին Բջջային (max-width: 768px) */
+/* Այս հատվածը մնում է նույնը, քանի որ այն կրճատում է ոճերը 1024px-ի վրայից: */
 @media (max-width: 768px) {
     .hero-section .container {
         padding: 0 15px;
@@ -347,6 +303,8 @@ body {
 }
 
 
+/* 3. Փոքր Բջջային (max-width: 576px) */
+/* ... (Ձեր 576px ոճերը մնում են անփոփոխ) ... */
 /* 4. Փոքր Բջջային (max-width: 576px) */
 @media (max-width: 576px) {
     .hero-section {
