@@ -1,3 +1,4 @@
+// src/components/Nav/Nav.jsx
 
 import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
@@ -57,55 +58,62 @@ export const Nav = () => {
     return (
         <>
             <nav className="nav-bar">
-                {/* Լոգո */}
-                <div className="logo">
-                    <Link to="/" onClick={handleLinkClick}>Varujan Vagharshakyan</Link>
-                </div>
-
-                <div className={`nav-links ${isMenuOpen ? 'open' : ''}`}>
-                    {mainLinks.map((link) => (
-                        <Link
-                            key={link.path}
-                            to={link.path}
-                            onClick={handleLinkClick}
-                            className={link.className}
-                        >
-                            {t(link.key)}
-                        </Link>
-                    ))}
-
-                    <AuthButton
-                        className="modal-button"
-                        onClick={isAdmin ? handleAdminLogout : handleOpenModal}
-                    />
-                </div>
-                <div className="nav-actions">
-                    <AuthButton
-                        className="modal-button desktop-only-button"
-                        onClick={isAdmin ? handleAdminLogout : handleOpenModal}
-                    />
-
-                    <div className="language-selector">
-                        {languages.map((lang, index) => (
-                            <React.Fragment key={lang}>
-                                <span
-                                    className={`lang-option ${currentLang === lang ? 'active' : ''}`}
-                                    onClick={() => handleLangChange(lang)}
-                                >
-                                    {lang}
-                                </span>
-                                {index < languages.length - 1 && ' / '}
-                            </React.Fragment>
-                        ))}
+                {/* ԱՎԵԼԱՑՎԱԾ Է .container ԴԱՍԸ: 
+                  Այն կառավարում է բովանդակության կենտրոնացումը և max-width-ը, 
+                  մինչդեռ .nav-bar-ը կառավարում է նավիգացիայի ամբողջ լայնության ֆոնը/սահմանը։
+                */}
+                <div className="container nav-content-wrapper">
+                    {/* Լոգո */}
+                    <div className="logo">
+                        <Link to="/" onClick={handleLinkClick}>Varujan Vagharshakyan</Link>
                     </div>
 
-                    <div
-                        className={`burger-menu ${isMenuOpen ? 'active' : ''}`}
-                        onClick={() => setIsMenuOpen(!isMenuOpen)}
-                    >
-                        <div className="bar1"></div>
-                        <div className="bar2"></div>
-                        <div className="bar3"></div>
+                    <div className={`nav-links ${isMenuOpen ? 'open' : ''}`}>
+                        {mainLinks.map((link) => (
+                            <Link
+                                key={link.path}
+                                to={link.path}
+                                onClick={handleLinkClick}
+                                className={link.className}
+                            >
+                                {t(link.key)}
+                            </Link>
+                        ))}
+
+                        <AuthButton
+                            className="modal-button"
+                            onClick={isAdmin ? handleAdminLogout : handleOpenModal}
+                        />
+                    </div>
+
+                    <div className="nav-actions">
+                        <AuthButton
+                            className="modal-button desktop-only-button"
+                            onClick={isAdmin ? handleAdminLogout : handleOpenModal}
+                        />
+
+                        <div className="language-selector">
+                            {languages.map((lang, index) => (
+                                <React.Fragment key={lang}>
+                                    <span
+                                        className={`lang-option ${currentLang === lang ? 'active' : ''}`}
+                                        onClick={() => handleLangChange(lang)}
+                                    >
+                                        {lang}
+                                    </span>
+                                    {index < languages.length - 1 && ' / '}
+                                </React.Fragment>
+                            ))}
+                        </div>
+
+                        <div
+                            className={`burger-menu ${isMenuOpen ? 'active' : ''}`}
+                            onClick={() => setIsMenuOpen(!isMenuOpen)}
+                        >
+                            <div className="bar1"></div>
+                            <div className="bar2"></div>
+                            <div className="bar3"></div>
+                        </div>
                     </div>
                 </div>
             </nav>

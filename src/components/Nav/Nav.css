@@ -1,20 +1,31 @@
-
 /* ----------------------------------- */
 /* Ընդհանուր ոճեր */
 /* ----------------------------------- */
 
 .nav-bar {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    padding: 15px 5%;
+    /* Պահում ենք միայն դիրքը, ֆոնը և Z-index-ը */
     position: absolute;
     top: 0;
     left: 0;
-    width: 95%;
+    width: 100%;
+    /* Ամբողջ լայնքով ֆոնի համար */
     z-index: 100;
     background-color: transparent;
     box-shadow: none;
+    padding: 0;
+    /* Ջնջել padding-ը, կառավարվում է .container-ի կողմից */
+}
+
+/* ՆՈՐ ԴԱՍ: Փաթաթում է կոնտեյների ներքին բովանդակությունը */
+.nav-content-wrapper {
+    /* Տեղափոխվել է այստեղ .nav-bar-ից */
+    display: flex;
+    justify-content: space-between;
+    /* Փոխարինում է space-around-ին՝ ավելի ճշգրիտ կենտրոնացման համար */
+    align-items: center;
+    /* padding-ը և width-ը կառավարվում են .container-ի կողմից */
+    padding: 15px 0;
+    /* Ուղղահայաց padding-ը թողնում ենք տեղական */
 }
 
 .logo a {
@@ -24,6 +35,7 @@
     color: #0088CC;
     text-decoration: none;
 }
+
 .nav-links {
     display: flex;
     gap: 30px;
@@ -158,32 +170,37 @@
 .modal-button:hover {
     background-color: #3b5087;
     box-shadow:
-            0 0 5px #00BFFF,
-            0 0 10px #00BFFF,
-            0 0 10px #00BFFF,
-            0 0 50px #00BFFF50;
+        0 0 5px #00BFFF,
+        0 0 10px #00BFFF,
+        0 0 10px #00BFFF,
+        0 0 50px #00BFFF50;
 }
 
-.modal-button {
+/* Մոդալ կոճակի տեսանելիության կանոնները */
+.nav-links .modal-button {
     display: none;
+    /* Թաքցնել nav-links-ի մեջ desktop-ի վրա */
 }
 
 .desktop-only-button {
     display: block;
+    /* Ցուցադրել nav-actions-ի մեջ desktop-ի վրա */
 }
+
 
 /* ----------------------------------- */
 /* ՌԵՍՊՈՆՍԻՎ (Media Queries) */
 /* ----------------------------------- */
 
+/* 1. Desktop (max-width: 1024px) */
 @media (max-width: 1024px) {
+    /* padding-ը կառավարվում է GlobalStyles.css-ի կողմից */
+
     .nav-links {
         gap: 15px;
     }
 
-    .nav-bar {
-        width: 95%;
-    }
+    /* .nav-bar width ոճը ջնջված է */
 
     .nav-links a {
         font-size: 15px;
@@ -191,16 +208,23 @@
 }
 
 
+/* 2. Tablet/Mobile (max-width: 768px) */
 @media (max-width: 768px) {
     .nav-bar {
         background-color: white;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         position: fixed;
-        width: 100%;
+        /* width: 100%; - Պահպանված է ֆիքսված դիրքի համար */
         left: 0;
         top: 0;
-        padding: 10px 4%;
+        /* padding-ը կառավարվում է GlobalStyles.css-ի կողմից */
+    }
+
+    /* Կոնտեյների ներքին flex ոճը մոբայլի վրա */
+    .nav-content-wrapper {
         flex-wrap: wrap;
+        padding: 10px 0;
+        /* Ուղղահայաց padding-ը փոքրացնում ենք */
     }
 
     .burger-menu {
@@ -212,6 +236,7 @@
         flex-direction: column;
         position: absolute;
         top: 65px;
+        /* Կարգավորել ըստ նոր nav-bar-ի բարձրության */
         left: 0;
         width: 100%;
         background-color: white;
@@ -236,20 +261,24 @@
     .nav-links a:last-child {
         border-bottom: none;
     }
+
     .nav-actions {
         margin-left: auto;
     }
+
+    /* Մոդալ կոճակի տեսանելիության կանոնները հակադարձվում են բջջայինի վրա */
+    .desktop-only-button {
+        display: none;
+    }
+
     .nav-links .modal-button {
         display: block;
+        /* Ցուցադրել nav-links-ի մեջ բջջայինի վրա */
         width: calc(100% - 40px);
         margin: 10px 20px;
         padding: 10px 0;
         text-align: center;
         border-radius: 5px;
-    }
-
-    .desktop-only-button {
-        display: none;
     }
 
     .nav-links a.appointment-button {
@@ -259,14 +288,17 @@
     }
 
 }
+
 /* ----------------------------------- */
 /* ԼՐԱՑՈՒՑԻՉ ՌԵՍՊՈՆՍԻՎ ՃՇԳՐՏՈՒՄՆԵՐ */
 /* ----------------------------------- */
 
-@media (min-width: 769px)  {
-    .nav-bar {
-        padding: 12px 3%;
-        width: 97%;
+/* 3. Min-width ոճերը (min-width: 769px) */
+@media (min-width: 769px) {
+    /* Ջնջված է padding և width ոճերը */
+
+    .nav-content-wrapper {
+        padding: 12px 0;
     }
 
     .nav-links {
@@ -285,16 +317,16 @@
         margin-right: 10px;
         font-size: 20px;
     }
-    .nav-actions{
+
+    .nav-actions {
         margin-left: 15px;
     }
 }
 
 
+/* 4. Small Mobile (max-width: 480px) */
 @media (max-width: 480px) {
-    .nav-bar {
-        padding: 10px 4%;
-    }
+    /* Ջնջված է padding ոճը */
 
     .logo a {
         font-size: 20px;
