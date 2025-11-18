@@ -4,9 +4,9 @@
 
 :root {
     /* Neon Colors */
-    --neon-blue: #007bff;
+    --neon-blue: #4c8bce;
     /* Primary medical blue */
-    --neon-cyan: #00ffff;
+    --neon-cyan: #35a8a8;
     /* Highlight/accent color */
     --neon-glow: rgba(0, 255, 255, 0.6);
     /* Cyan glow effect */
@@ -14,7 +14,7 @@
     /* Text color on hover */
 
     /* Background and Text */
-    --bg-dark: rgb(0, 128, 128);
+    --bg-dark: rgb(136, 209, 209);
     /* Very dark background for contrast */
     --text-light: #eeeeee;
     --border-color: rgba(0, 255, 255, 0.2);
@@ -49,10 +49,10 @@ body {
 .logo a {
     font-size: 24px;
     font-weight: 700;
-        color: var(--neon-blue);
+    color: var(--neon-hover-color);
     text-decoration: none;
     text-shadow: 0 0 5px var(--neon-blue);
-font-family: "Dancing Script", cursive;
+    font-family: "Dancing Script", cursive;
     transition: color var(--transition-speed);
 }
 
