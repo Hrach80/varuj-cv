@@ -14,7 +14,7 @@
     /* Text color on hover */
 
     /* Background and Text */
-    --bg-dark: #0a0a0e;
+    --bg-dark: rgb(0, 128, 128);
     /* Very dark background for contrast */
     --text-light: #eeeeee;
     --border-color: rgba(0, 255, 255, 0.2);
@@ -49,10 +49,10 @@ body {
 .logo a {
     font-size: 24px;
     font-weight: 700;
-    color: var(--neon-cyan);
+        color: var(--neon-blue);
     text-decoration: none;
-    text-shadow: 0 0 5px var(--neon-cyan);
-    /* Neon glow for logo */
+    text-shadow: 0 0 5px var(--neon-blue);
+font-family: "Dancing Script", cursive;
     transition: color var(--transition-speed);
 }
 
@@ -66,7 +66,7 @@ body {
 
 .nav-links {
     display: flex;
-    gap: 30px;
+    gap: 15px;
     align-items: center;
 }
 
@@ -74,6 +74,7 @@ body {
     color: var(--text-light);
     text-decoration: none;
     font-size: 16px;
+    font-weight: bold;
     padding: 5px 0;
     position: relative;
     transition: color var(--transition-speed);
@@ -105,20 +106,15 @@ body {
 
 /* Appointment Button Specific Styling */
 .appointment-button {
-    background: var(--neon-blue);
-    color: var(--bg-dark) !important;
+
+    color: white;
     padding: 8px 15px;
     border-radius: 20px;
     font-weight: 600;
-    box-shadow: 0 0 10px var(--neon-blue);
     transition: background var(--transition-speed), transform var(--transition-speed), box-shadow var(--transition-speed);
 }
 
-.appointment-button:hover {
-    background: var(--neon-cyan);
-    box-shadow: 0 0 15px var(--neon-cyan), 0 0 25px var(--neon-glow);
-    transform: translateY(-2px) scale(1.05);
-}
+
 
 .appointment-button::after {
     content: none;
