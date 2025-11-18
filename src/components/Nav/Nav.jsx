@@ -1,4 +1,3 @@
-// src/components/Nav/Nav.jsx
 
 import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
@@ -58,63 +57,64 @@ export const Nav = () => {
     return (
         <>
             <nav className="nav-bar">
-                {/* ԱՎԵԼԱՑՎԱԾ Է .container ԴԱՍԸ: 
-                  Այն կառավարում է բովանդակության կենտրոնացումը և max-width-ը, 
-                  մինչդեռ .nav-bar-ը կառավարում է նավիգացիայի ամբողջ լայնության ֆոնը/սահմանը։
-                */}
-                <div className="container nav-content-wrapper">
-                    {/* Լոգո */}
-                    <div className="logo">
-                        <Link to="/" onClick={handleLinkClick}>Varujan Vagharshakyan</Link>
-                    </div>
+                {/* Logo */}
+                <div className="logo">
+                    <Link to="/" onClick={handleLinkClick}>Varujan Vagharshakyan</Link>
+                </div>
 
-                    <div className={`nav-links ${isMenuOpen ? 'open' : ''}`}>
-                        {mainLinks.map((link) => (
-                            <Link
-                                key={link.path}
-                                to={link.path}
-                                onClick={handleLinkClick}
-                                className={link.className}
-                            >
-                                {t(link.key)}
-                            </Link>
-                        ))}
-
+                {/* Main nav (desktop: flex, mobile/tablet: hidden/default collapse) */}
+                <div className={`nav-links ${isMenuOpen ? 'open' : ''}`}>
+                    {mainLinks.map((link) => (
+                        <Link
+                            key={link.path}
+                            to={link.path}
+                            onClick={handleLinkClick}
+                            className={link.className}
+                        >
+                            {t(link.key)}
+                        </Link>
+                    ))}
+                    {/* Show AuthButton only in mobile/tablet burger-menu open state */}
+                    <span className="auth-btn-mobile">
                         <AuthButton
                             className="modal-button"
                             onClick={isAdmin ? handleAdminLogout : handleOpenModal}
                         />
+                    </span>
+                </div>
+                {/* Nav actions (only desktop) */}
+                <div className="nav-actions">
+                    <div className="language-selector">
+                        {languages.map((lang, index) => (
+                            <React.Fragment key={lang}>
+                                <span
+                                    className={`lang-option ${currentLang === lang ? 'active' : ''}`}
+                                    onClick={() => handleLangChange(lang)}
+                                >
+                                    {lang}
+                                </span>
+                                {index < languages.length - 1 && ' / '}
+                            </React.Fragment>
+                        ))}
                     </div>
-
-                    <div className="nav-actions">
+                    {/* Desktop auth button, hidden on mobile/tablet */}
+                    <span className="auth-btn-desktop">
                         <AuthButton
                             className="modal-button desktop-only-button"
                             onClick={isAdmin ? handleAdminLogout : handleOpenModal}
                         />
-
-                        <div className="language-selector">
-                            {languages.map((lang, index) => (
-                                <React.Fragment key={lang}>
-                                    <span
-                                        className={`lang-option ${currentLang === lang ? 'active' : ''}`}
-                                        onClick={() => handleLangChange(lang)}
-                                    >
-                                        {lang}
-                                    </span>
-                                    {index < languages.length - 1 && ' / '}
-                                </React.Fragment>
-                            ))}
-                        </div>
-
-                        <div
-                            className={`burger-menu ${isMenuOpen ? 'active' : ''}`}
-                            onClick={() => setIsMenuOpen(!isMenuOpen)}
-                        >
-                            <div className="bar1"></div>
-                            <div className="bar2"></div>
-                            <div className="bar3"></div>
-                        </div>
-                    </div>
+                    </span>
+                    <button
+                        className={`burger-menu ${isMenuOpen ? 'active' : ''}`}
+                        tabIndex={0}
+                        aria-label="Show navigation menu"
+                        role="button"
+                        onClick={() => setIsMenuOpen(!isMenuOpen)}
+                    >
+                        <span className="bar1"></span>
+                        <span className="bar2"></span>
+                        <span className="bar3"></span>
+                    </button>
                 </div>
             </nav>
             <AuthModal isOpen={isModalOpen} onClose={handleCloseModal} t={t} />

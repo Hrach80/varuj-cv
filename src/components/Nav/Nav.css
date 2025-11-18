@@ -1,99 +1,138 @@
-/* ----------------------------------- */
-/* Ընդհանուր ոճեր */
-/* ----------------------------------- */
+/* ------------------------------------------- */
+/* 1. Global Variables and Base Styles         */
+/* ------------------------------------------- */
+
+:root {
+    /* Neon Colors */
+    --neon-blue: #007bff;
+    /* Primary medical blue */
+    --neon-cyan: #00ffff;
+    /* Highlight/accent color */
+    --neon-glow: rgba(0, 255, 255, 0.6);
+    /* Cyan glow effect */
+    --neon-hover-color: #ffffff;
+    /* Text color on hover */
+
+    /* Background and Text */
+    --bg-dark: #0a0a0e;
+    /* Very dark background for contrast */
+    --text-light: #eeeeee;
+    --border-color: rgba(0, 255, 255, 0.2);
+
+    /* Transitions */
+    --transition-speed: 0.3s;
+}
+
+body {
+    background-color: var(--bg-dark);
+}
+
+/* ------------------------------------------- */
+/* 2. Navigation Bar (Desktop/Base)            */
+/* ------------------------------------------- */
 
 .nav-bar {
-    /* Պահում ենք միայն դիրքը, ֆոնը և Z-index-ը */
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    /* Ամբողջ լայնքով ֆոնի համար */
-    z-index: 100;
-    background-color: transparent;
-    box-shadow: none;
-    padding: 0;
-    /* Ջնջել padding-ը, կառավարվում է .container-ի կողմից */
-}
-
-/* ՆՈՐ ԴԱՍ: Փաթաթում է կոնտեյների ներքին բովանդակությունը */
-.nav-content-wrapper {
-    /* Տեղափոխվել է այստեղ .nav-bar-ից */
     display: flex;
     justify-content: space-between;
-    /* Փոխարինում է space-around-ին՝ ավելի ճշգրիտ կենտրոնացման համար */
     align-items: center;
-    /* padding-ը և width-ը կառավարվում են .container-ի կողմից */
-    padding: 15px 0;
-    /* Ուղղահայաց padding-ը թողնում ենք տեղական */
+    padding: 15px 30px;
+    background-color: var(--bg-dark);
+    border-bottom: 1px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 15px rgba(0, 255, 255, 0.1);
+    /* Subtle neon shadow */
 }
 
+/* Logo Styling */
 .logo a {
-    font-family: "Dancing Script", cursive;
     font-size: 24px;
     font-weight: 700;
-    color: #0088CC;
+    color: var(--neon-cyan);
     text-decoration: none;
+    text-shadow: 0 0 5px var(--neon-cyan);
+    /* Neon glow for logo */
+    transition: color var(--transition-speed);
 }
+
+.logo a:hover {
+    color: var(--neon-hover-color);
+}
+
+/* ------------------------------------------- */
+/* 3. Main Navigation Links (Desktop)          */
+/* ------------------------------------------- */
 
 .nav-links {
     display: flex;
     gap: 30px;
+    align-items: center;
 }
 
 .nav-links a {
-    position: relative;
-    display: inline-block;
+    color: var(--text-light);
     text-decoration: none;
-    color: #5871ac;
     font-size: 16px;
-    font-weight: 500;
-    padding: 6px 0;
-    white-space: nowrap;
-    transition: color 0.3s ease, transform 0.3s ease;
+    padding: 5px 0;
+    position: relative;
+    transition: color var(--transition-speed);
 }
 
+/* Neon Underline Effect */
 .nav-links a::after {
-    content: "";
+    content: '';
     position: absolute;
-    bottom: -4px;
-    left: 0;
-    width: 0%;
+    bottom: -5px;
+    left: 50%;
+    width: 0;
     height: 2px;
-    background: linear-gradient(90deg, #4a68af, #43dcff);
-    box-shadow:
-        0 0 5px #00BFFF,
-        0 0 15px #00BFFF,
-        0 0 30px #00BFFF,
-        0 0 50px #00BFFF50;
-    border-radius: 2px;
-    transition: width 0.4s ease;
-    transform-origin: left;
+    background: var(--neon-cyan);
+    box-shadow: 0 0 8px var(--neon-cyan);
+    transition: width var(--transition-speed), left var(--transition-speed);
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+    width: 100%;
+    left: 0;
 }
 
 .nav-links a:hover {
-    color: #1a537c;
-    transform: translateY(-2px);
-    text-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+    color: var(--neon-cyan);
+    text-shadow: 0 0 3px var(--neon-cyan);
 }
 
-.nav-links a:hover::after {
-    width: 100%;
-}
-
-.nav-links a.active {
-    color: #e3f2fd;
-}
-
-.nav-links a.active::after {
-    width: 100%;
-}
-
+/* Appointment Button Specific Styling */
 .appointment-button {
-    border-radius: 5px;
+    background: var(--neon-blue);
+    color: var(--bg-dark) !important;
+    padding: 8px 15px;
+    border-radius: 20px;
     font-weight: 600;
-    transition: background-color 0.3s;
+    box-shadow: 0 0 10px var(--neon-blue);
+    transition: background var(--transition-speed), transform var(--transition-speed), box-shadow var(--transition-speed);
 }
+
+.appointment-button:hover {
+    background: var(--neon-cyan);
+    box-shadow: 0 0 15px var(--neon-cyan), 0 0 25px var(--neon-glow);
+    transform: translateY(-2px) scale(1.05);
+}
+
+.appointment-button::after {
+    content: none;
+    /* Disable default underline for button */
+}
+
+/* Hide mobile Auth Button on Desktop */
+.auth-btn-mobile {
+    display: none;
+}
+
+/* ------------------------------------------- */
+/* 4. Nav Actions (Language and Auth Button)   */
+/* ------------------------------------------- */
 
 .nav-actions {
     display: flex;
@@ -101,256 +140,172 @@
     gap: 20px;
 }
 
+/* Language Selector */
 .language-selector {
+    display: flex;
+    gap: 10px;
+    color: var(--text-light);
     font-size: 14px;
-    color: #777;
-    font-weight: 600;
-    white-space: nowrap;
 }
 
 .lang-option {
     cursor: pointer;
-    padding: 0 3px;
-    transition: color 0.2s;
+    transition: color var(--transition-speed), text-shadow var(--transition-speed);
 }
 
 .lang-option.active {
-    color: #4a68af;
+    color: var(--neon-cyan);
+    font-weight: 700;
+    text-shadow: 0 0 5px var(--neon-cyan);
 }
 
-/* ----------------------------------- */
-/* BURGER MENU ՈՃԵՐ */
-/* ----------------------------------- */
-
-.burger-menu {
-    display: none;
-    cursor: pointer;
-    padding: 5px;
-    z-index: 150;
+.lang-option:not(.active):hover {
+    color: var(--neon-blue);
 }
 
-.burger-menu div {
-    width: 25px;
-    height: 3px;
-    background-color: #333;
-    margin: 5px 0;
-    transition: all 0.3s ease;
-}
-
-.burger-menu.active .bar1 {
-    transform: translateY(8px) rotate(-45deg);
-}
-
-.burger-menu.active .bar2 {
-    opacity: 0;
-}
-
-.burger-menu.active .bar3 {
-    transform: translateY(-8px) rotate(45deg);
-}
-
-/* ----------------------------------- */
-/* Modal Կոճակների ոճեր */
-/* ----------------------------------- */
-
+/* Auth Modal Button */
 .modal-button {
-    background-color: #0088CC;
-    color: white;
-    border: none;
-    padding: 3px 20px;
+    background: transparent;
+    border: 1px solid var(--neon-blue);
+    color: var(--neon-blue);
+    padding: 8px 15px;
     border-radius: 5px;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 15px;
     font-weight: 600;
-    transition: box-shadow 0.3s ease, transform 0.3s ease;
-    transition: background-color 0.3s;
-    white-space: nowrap;
+    transition: background var(--transition-speed), color var(--transition-speed), box-shadow var(--transition-speed), border-color var(--transition-speed);
 }
 
 .modal-button:hover {
-    background-color: #3b5087;
-    box-shadow:
-        0 0 5px #00BFFF,
-        0 0 10px #00BFFF,
-        0 0 10px #00BFFF,
-        0 0 50px #00BFFF50;
+    background: var(--neon-blue);
+    color: var(--bg-dark);
+    box-shadow: 0 0 15px var(--neon-blue), 0 0 20px rgba(0, 123, 255, 0.4);
+    border-color: var(--neon-blue);
 }
 
-/* Մոդալ կոճակի տեսանելիության կանոնները */
-.nav-links .modal-button {
+/* Hide Burger Menu on Desktop */
+.burger-menu {
     display: none;
-    /* Թաքցնել nav-links-ի մեջ desktop-ի վրա */
 }
 
-.desktop-only-button {
-    display: block;
-    /* Ցուցադրել nav-actions-ի մեջ desktop-ի վրա */
-}
+/* ------------------------------------------- */
+/* 5. Mobile/Tablet Burger Menu (Media Queries)*/
+/* ------------------------------------------- */
 
-
-/* ----------------------------------- */
-/* ՌԵՍՊՈՆՍԻՎ (Media Queries) */
-/* ----------------------------------- */
-
-/* 1. Desktop (max-width: 1024px) */
+/* Tablet & Mobile (Max-width 1024px - iPad Pro/Air portrait) */
 @media (max-width: 1024px) {
-    /* padding-ը կառավարվում է GlobalStyles.css-ի կողմից */
-
-    .nav-links {
-        gap: 15px;
-    }
-
-    /* .nav-bar width ոճը ջնջված է */
-
-    .nav-links a {
-        font-size: 15px;
-    }
-}
-
-
-/* 2. Tablet/Mobile (max-width: 768px) */
-@media (max-width: 768px) {
     .nav-bar {
-        background-color: white;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        position: fixed;
-        /* width: 100%; - Պահպանված է ֆիքսված դիրքի համար */
-        left: 0;
-        top: 0;
-        /* padding-ը կառավարվում է GlobalStyles.css-ի կողմից */
+        padding: 15px 20px;
     }
 
-    /* Կոնտեյների ներքին flex ոճը մոբայլի վրա */
-    .nav-content-wrapper {
-        flex-wrap: wrap;
-        padding: 10px 0;
-        /* Ուղղահայաց padding-ը փոքրացնում ենք */
-    }
-
-    .burger-menu {
-        display: block;
-    }
-
+    /* Hide desktop nav links and desktop auth button */
     .nav-links {
-        display: flex;
+        display: none;
         flex-direction: column;
         position: absolute;
-        top: 65px;
-        /* Կարգավորել ըստ նոր nav-bar-ի բարձրության */
+        top: 60px;
+        /* Adjust based on your nav-bar height */
         left: 0;
         width: 100%;
-        background-color: white;
-        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-        transform: translateX(-100%);
-        transition: transform 0.3s ease-in-out;
-        z-index: 90;
-        padding: 10px 0;
+        background-color: var(--bg-dark);
+        border-top: 1px solid var(--border-color);
+        padding: 20px 0;
+        box-shadow: 0 8px 10px rgba(0, 255, 255, 0.05);
+        transition: transform var(--transition-speed) ease-in-out;
+        transform: translateY(-100%);
+        overflow: hidden;
     }
 
+    /* Open menu state */
     .nav-links.open {
-        transform: translateX(0);
+        display: flex;
+        transform: translateY(0);
     }
 
     .nav-links a {
-        padding: 10px 20px;
-        border-bottom: 1px solid #eee;
-        text-align: left;
-        color: #333 !important;
-    }
-
-    .nav-links a:last-child {
-        border-bottom: none;
-    }
-
-    .nav-actions {
-        margin-left: auto;
-    }
-
-    /* Մոդալ կոճակի տեսանելիության կանոնները հակադարձվում են բջջայինի վրա */
-    .desktop-only-button {
-        display: none;
-    }
-
-    .nav-links .modal-button {
-        display: block;
-        /* Ցուցադրել nav-links-ի մեջ բջջայինի վրա */
-        width: calc(100% - 40px);
-        margin: 10px 20px;
-        padding: 10px 0;
+        padding: 10px 30px;
+        width: 100%;
         text-align: center;
-        border-radius: 5px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     }
 
-    .nav-links a.appointment-button {
-        background-color: transparent !important;
-        color: #333 !important;
-        border-bottom: 1px solid #eee;
+    /* Show mobile Auth Button in open menu */
+    .auth-btn-mobile {
+        display: block;
+        padding: 10px 30px;
+        width: 100%;
+        text-align: center;
     }
 
+    .auth-btn-desktop {
+        display: none;
+        /* Hide desktop button */
+    }
+
+    /* Show Burger Menu */
+    .burger-menu {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        width: 30px;
+        height: 25px;
+        cursor: pointer;
+        background: transparent;
+        border: none;
+        padding: 0;
+    }
+
+    .burger-menu:focus {
+        outline: none;
+    }
+
+    .burger-menu span {
+        display: block;
+        width: 100%;
+        height: 3px;
+        background: var(--neon-cyan);
+        border-radius: 10px;
+        transition: all var(--transition-speed) ease-in-out;
+        transform-origin: 1px;
+    }
+
+    /* Burger to X Animation */
+    .burger-menu.active .bar1 {
+        transform: rotate(45deg);
+    }
+
+    .burger-menu.active .bar2 {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+
+    .burger-menu.active .bar3 {
+        transform: rotate(-45deg);
+    }
+
+    .burger-menu.active .bar1,
+    .burger-menu.active .bar3 {
+        box-shadow: 0 0 5px var(--neon-cyan);
+    }
 }
 
-/* ----------------------------------- */
-/* ԼՐԱՑՈՒՑԻՉ ՌԵՍՊՈՆՍԻՎ ՃՇԳՐՏՈՒՄՆԵՐ */
-/* ----------------------------------- */
-
-/* 3. Min-width ոճերը (min-width: 769px) */
-@media (min-width: 769px) {
-    /* Ջնջված է padding և width ոճերը */
-
-    .nav-content-wrapper {
-        padding: 12px 0;
-    }
-
-    .nav-links {
-        gap: 20px;
-    }
-
-    .nav-links a {
-        font-size: 15px;
-    }
-
-    .language-selector {
-        font-size: 13px;
-    }
-
-    .logo a {
-        margin-right: 10px;
-        font-size: 20px;
-    }
-
-    .nav-actions {
-        margin-left: 15px;
-    }
-}
-
-
-/* 4. Small Mobile (max-width: 480px) */
+/* Small Mobile Devices (Max-width 480px) */
 @media (max-width: 480px) {
-    /* Ջնջված է padding ոճը */
+    .nav-bar {
+        padding: 10px 15px;
+    }
 
     .logo a {
         font-size: 20px;
+    }
+
+    /* Language selector alignment for small screens */
+    .language-selector {
+        order: -1;
+        /* Move language selector to the left of the logo/burger */
     }
 
     .nav-actions {
         gap: 10px;
-    }
-
-    .language-selector {
-        font-size: 12px;
-    }
-
-    .burger-menu div {
-        width: 20px;
-        height: 2px;
-        margin: 4px 0;
-    }
-
-    .burger-menu.active .bar1 {
-        transform: translateY(6px) rotate(-45deg);
-    }
-
-    .burger-menu.active .bar3 {
-        transform: translateY(-6px) rotate(45deg);
     }
 }
