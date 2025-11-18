@@ -1,5 +1,12 @@
+*{
+    box-sizing: border-box;
+}
 body {
     background: linear-gradient(145deg, #e0f0ff 0%, #ffffff 100%);
+}
+.container{
+    max-width: 1440px;
+
 }
 
 .home-box {

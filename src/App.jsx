@@ -5,6 +5,7 @@ import AppRoutes from './routes/AppRoutes.jsx';
 import { LanguageProvider } from './context/LanguageContext.jsx';
 import { AuthProvider } from './context/AuthContext.jsx'; 
 
+
 function App() {
   return (
     <LanguageProvider>

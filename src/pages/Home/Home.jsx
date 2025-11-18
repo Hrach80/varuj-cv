@@ -148,17 +148,6 @@ const Home = () => {
                             {t('description')}
                         </p>
                     </div>
-
-                    {/* 3. Հետհաշվարկ (order: 3 - Desktop | order: 2 - Mobile) */}
-                    {/* Դեսքթոփի վրա այն կտեղադրվի աջից՝ hero-image-container-ի ներքևում,
-                       քանի որ բոլորը flex-wrap: wrap-ի մեջ են։ 
-                       Փոփոխություն՝ order: 3-ի փոխարեն դարձնել ավելի բարձր desktop-ի համար
-                       կամ պարզապես թողնել ավելի ուշ։ Ավելի լավ է այն տեղադրել ԲՈՎԱՆԴԱԿՈՒԹՅԱՆՑ հետո, 
-                       որպեսզի կարողանանք կառավարել order-ը։
-                       
-                       Քանի որ դուք նախկինում տվել էիք order: 3 results-section-ին,
-                       Մենք կպահպանենք տեղադրումը:
-                    */}
                     <section className="results-section top-countdown">
                         <div className="results-container">
                             <div className="countdown-container">
