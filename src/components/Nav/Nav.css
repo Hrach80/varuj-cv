@@ -3,23 +3,14 @@
 /* ------------------------------------------- */
 
 :root {
-    /* Neon Colors */
+
     --neon-blue: #4c8bce;
-    /* Primary medical blue */
-    --neon-cyan: #35a8a8;
-    /* Highlight/accent color */
+    --neon-cyan:#0015fd;
     --neon-glow: rgba(0, 255, 255, 0.6);
-    /* Cyan glow effect */
-    --neon-hover-color: #ffffff;
-    /* Text color on hover */
-
-    /* Background and Text */
+    --neon-hover-color: #0015fd;
     --bg-dark: rgb(136, 209, 209);
-    /* Very dark background for contrast */
-    --text-light: #eeeeee;
+    --text-light: #ffffff;
     --border-color: rgba(0, 255, 255, 0.2);
-
-    /* Transitions */
     --transition-speed: 0.3s;
 }
 
@@ -42,16 +33,13 @@ body {
     top: 0;
     z-index: 1000;
     box-shadow: 0 4px 15px rgba(0, 255, 255, 0.1);
-    /* Subtle neon shadow */
 }
-
-/* Logo Styling */
 .logo a {
     font-size: 24px;
     font-weight: 700;
     color: var(--neon-hover-color);
     text-decoration: none;
-    text-shadow: 0 0 5px var(--neon-blue);
+    text-shadow: 0 0 5px rgb(4, 74, 52);
     font-family: "Dancing Script", cursive;
     transition: color var(--transition-speed);
 }
@@ -80,7 +68,6 @@ body {
     transition: color var(--transition-speed);
 }
 
-/* Neon Underline Effect */
 .nav-links a::after {
     content: '';
     position: absolute;
@@ -104,7 +91,6 @@ body {
     text-shadow: 0 0 3px var(--neon-cyan);
 }
 
-/* Appointment Button Specific Styling */
 .appointment-button {
 
     color: white;
@@ -118,10 +104,9 @@ body {
 
 .appointment-button::after {
     content: none;
-    /* Disable default underline for button */
 }
 
-/* Hide mobile Auth Button on Desktop */
+
 .auth-btn-mobile {
     display: none;
 }
@@ -136,7 +121,6 @@ body {
     gap: 20px;
 }
 
-/* Language Selector */
 .language-selector {
     display: flex;
     gap: 10px;
@@ -159,7 +143,6 @@ body {
     color: var(--neon-blue);
 }
 
-/* Auth Modal Button */
 .modal-button {
     background: transparent;
     border: 1px solid var(--neon-blue);
@@ -179,7 +162,6 @@ body {
     border-color: var(--neon-blue);
 }
 
-/* Hide Burger Menu on Desktop */
 .burger-menu {
     display: none;
 }
@@ -188,19 +170,16 @@ body {
 /* 5. Mobile/Tablet Burger Menu (Media Queries)*/
 /* ------------------------------------------- */
 
-/* Tablet & Mobile (Max-width 1024px - iPad Pro/Air portrait) */
 @media (max-width: 1024px) {
     .nav-bar {
         padding: 15px 20px;
     }
 
-    /* Hide desktop nav links and desktop auth button */
     .nav-links {
         display: none;
         flex-direction: column;
         position: absolute;
         top: 60px;
-        /* Adjust based on your nav-bar height */
         left: 0;
         width: 100%;
         background-color: var(--bg-dark);
@@ -212,7 +191,6 @@ body {
         overflow: hidden;
     }
 
-    /* Open menu state */
     .nav-links.open {
         display: flex;
         transform: translateY(0);
@@ -225,7 +203,6 @@ body {
         border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     }
 
-    /* Show mobile Auth Button in open menu */
     .auth-btn-mobile {
         display: block;
         padding: 10px 30px;
@@ -235,10 +212,8 @@ body {
 
     .auth-btn-desktop {
         display: none;
-        /* Hide desktop button */
     }
 
-    /* Show Burger Menu */
     .burger-menu {
         display: flex;
         flex-direction: column;
@@ -264,8 +239,6 @@ body {
         transition: all var(--transition-speed) ease-in-out;
         transform-origin: 1px;
     }
-
-    /* Burger to X Animation */
     .burger-menu.active .bar1 {
         transform: rotate(45deg);
     }
@@ -285,7 +258,6 @@ body {
     }
 }
 
-/* Small Mobile Devices (Max-width 480px) */
 @media (max-width: 480px) {
     .nav-bar {
         padding: 10px 15px;
@@ -295,10 +267,8 @@ body {
         font-size: 20px;
     }
 
-    /* Language selector alignment for small screens */
     .language-selector {
         order: -1;
-        /* Move language selector to the left of the logo/burger */
     }
 
     .nav-actions {
